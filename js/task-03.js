@@ -15,10 +15,17 @@ const images = [
 
 let listEL = document.querySelector(".gallery");
 
-for (let img of images) {
-  listEL.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src = "${img.url}" alt="${img.alt}", height="300px"
-      width="430px"></li>`
-  );
-}
+let elements = images
+  .map((img) => {
+    return `<li><img src = "${img.url}" alt="${img.alt}", height="300px", width="430px"></li>`;
+  })
+  .join("");
+listEL.insertAdjacentHTML("beforeend", elements);
+
+// for (let img of images) {
+//   listEL.insertAdjacentHTML(
+//     "beforeend",
+//     `<li><img src = "${img.url}" alt="${img.alt}", height="300px"
+//       width="430px"></li>`
+//   );
+// }
